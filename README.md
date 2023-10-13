@@ -23,3 +23,22 @@ Django приложение которое позволяет строить д�
 ```bash
 git clone git@github.com:galirkil/menu_maker_project.git
 ```
+Перейдите в папку с проектом, установите и активируйте виртуальное окружение:
+```bash
+cd menu_maker_project
+python3 -m venv venv
+source venv/bin/activate
+```
+Выполните миграции:
+```bash
+python3 manage.py makemigrations
+python3 manage.py migrate
+```
+Загрузите тестовое наполнение для базы данны:
+```bash
+python3 manage.py loaddata test_db_dump.json
+```
+Запустите сервер:
+```bash
+python3 manage.py runserver
+```
