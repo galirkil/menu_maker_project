@@ -1,10 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% load menu_maker_tag %}
 
-</body>
-</html>
+<ul>
+    {% for item in items %}
+        <li>
+            {% if item in upper_active_items %}
+                {% include 'menu_maker/item_sample.html' with active=True clickable=True %}
+                    {% if upper_levels|length > 0 %}
+                        {% include 'menu_maker/menu_sample.html' with items=upper_levels|last upper_levels=upper_levels|pop %}
+                    {% endif %}
+            {% elif item == current_item %}
+                {% include 'menu_maker/item_sample.html' with active=True clickable=False %}
+                {% include 'menu_maker/last_lvl_sample.html' with active=False clickable=True %}
+            {% elif item not in upper_active_items %}
+                {% include 'menu_maker/item_sample.html' with active=False clickable=True %}
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

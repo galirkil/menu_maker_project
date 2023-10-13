@@ -1,0 +1,5 @@
+<ul>
+  {% for item in current_item_children_items %}
+    <li>{% include 'menu_maker/item_sample.html' with  active=False clickable=True %}</li>
+  {% endfor %}
+</ul>

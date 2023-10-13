@@ -1,0 +1,7 @@
+{% if  clickable %}
+    <a href="{% url item.path %}">
+{% endif %}
+{% if active %} <b> {% endif %} {{ item.title }} {% if active %} </b> {% endif %}
+{% if clickable %}
+    </a>
+{% endif %}
