@@ -29,6 +29,10 @@ cd menu_maker_project
 python3 -m venv venv
 source venv/bin/activate
 ```
+Установите Django:
+```bash
+pip install django
+```
 Выполните миграции:
 ```bash
 python3 manage.py makemigrations
