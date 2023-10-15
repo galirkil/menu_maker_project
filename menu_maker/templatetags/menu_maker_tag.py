@@ -1,4 +1,7 @@
+from typing import Any, Dict
+
 from django import template
+from django.template import Context
 
 from menu_maker.models import Menu
 
@@ -6,7 +9,7 @@ register = template.Library()
 
 
 @register.inclusion_tag('menu_maker/menu_sample.html', takes_context=True)
-def draw_menu(context, slug):
+def draw_menu(context: Context, slug: str) -> Dict[str, Any]:
 
     menu = Menu.objects.get(slug=slug)
     items = menu.menu_items.filter(parent_item=None)
