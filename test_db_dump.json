@@ -273,6 +273,19 @@
     }
   },
   {
+    "model": "admin.logentry",
+    "pk": 22,
+    "fields": {
+      "action_time": "2023-10-15T19:11:54.419Z",
+      "user": 1,
+      "content_type": 7,
+      "object_id": "2",
+      "object_repr": "Main menu",
+      "action_flag": 2,
+      "change_message": "[{\"changed\": {\"name\": \"\\u041f\\u0443\\u043d\\u043a\\u0442 \\u043c\\u0435\\u043d\\u044e\", \"object\": \"MenuItem object (18)\", \"fields\": [\"\\u0410\\u0434\\u0440\\u0435\\u0441 \\u043f\\u0443\\u043d\\u043a\\u0442\\u0430 \\u043c\\u0435\\u043d\\u044e\"]}}]"
+    }
+  },
+  {
     "model": "auth.permission",
     "pk": 1,
     "fields": {
@@ -565,7 +578,7 @@
     "pk": 1,
     "fields": {
       "password": "pbkdf2_sha256$600000$qRNUUvex9Llx9UH5G2cxOA$ixj9CxUfvv9FgK4rz1a+BFGHzfDcJLYA2Yuv/TlV0ec=",
-      "last_login": "2023-10-13T09:55:44.347Z",
+      "last_login": "2023-10-15T19:11:10.598Z",
       "is_superuser": true,
       "username": "admin",
       "first_name": "",
@@ -648,6 +661,14 @@
     "fields": {
       "session_data": ".eJxVjEsOwiAUAO_C2hB-fYBL9z0DecBDqoYmpV0Z725IutDtzGTeLOCx13B02sKS2ZVJdvllEdOT2hD5ge2-8rS2fVsiHwk_befzmul1O9u_QcVex9YY8Igktci-gLGkBGlfUIoJvNI2OUoUi7NJTtYTxORBq5ijBAcls88X1dI35w:1qr0mf:_iqOAbv4ZcGaTb_lTW4wcmLrx2k8bl3gTZ7EBT4EuP8",
       "expire_date": "2023-10-26T18:51:45.718Z"
+    }
+  },
+  {
+    "model": "sessions.session",
+    "pk": "clnbr6qjq4kx7snx1p0drtkrni4ltrbd",
+    "fields": {
+      "session_data": ".eJxVjEsOwiAUAO_C2hB-fYBL9z0DecBDqoYmpV0Z725IutDtzGTeLOCx13B02sKS2ZVJdvllEdOT2hD5ge2-8rS2fVsiHwk_befzmul1O9u_QcVex9YY8Igktci-gLGkBGlfUIoJvNI2OUoUi7NJTtYTxORBq5ijBAcls88X1dI35w:1qs6W6:5gEOEc-8Qd0Ks2wWO9qbMFIc-WJEzeUeZnoX03CY_kw",
+      "expire_date": "2023-10-29T19:11:10.599Z"
     }
   },
   {
@@ -838,7 +859,7 @@
     "fields": {
       "title": "Tel3",
       "menu": 2,
-      "path": "some_main_app:tel1",
+      "path": "some_main_app:tel3",
       "parent_item": 15
     }
   },
