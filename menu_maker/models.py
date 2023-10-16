@@ -1,5 +1,7 @@
 from django.db import models
 
+from .validators import validate_menu, validate_parent, validate_path
+
 
 class Menu(models.Model):
     title = models.CharField(
@@ -14,7 +16,7 @@ class Menu(models.Model):
         help_text=(
             'Укажите уникальный идентификатор для меню. '
             'Значение этого поля используется для загрузки меню в шаблон. '
-            'Допустимы латинские буквы, цифры и нижнее подчеркивание'
+            'Допустимы латинские буквы, цифры, нижнее подчеркивание и дефис '
 
         )
     )
@@ -66,6 +68,11 @@ class MenuItem(models.Model):
 
     def __str__(self):
         return self.title
+
+    def clean(self):
+        validate_path(self)
+        validate_menu(self)
+        validate_parent(self)
 
     class Meta:
         verbose_name = 'Пункт меню'
