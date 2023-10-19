@@ -14,7 +14,7 @@ def draw_menu(context: Context, slug: str) -> Dict[str, Any]:
         'parent_item')
     path = context['request'].resolver_match.view_name
     current_item, current_item_children_items = None, None
-    menu_list, upper_levels, upper_active_items = [], [], []
+    menu_list, items, upper_levels, upper_active_items = [], [], [], []
 
     for i in all_items:
         menu_list.append(
@@ -28,19 +28,17 @@ def draw_menu(context: Context, slug: str) -> Dict[str, Any]:
         )
 
     for i in menu_list:
+        if i['parent_item'] is None:
+            items.append(i)
         for j in menu_list:
             if j['parent_item'] == i['id']:
                 i['children'].append(j)
 
-    items = [i for i in menu_list if i['parent_item'] is None]
-
     for i in menu_list:
         if i['path'] == path:
             current_item = i
-
-    for i in menu_list:
-        if i['id'] == current_item['id']:
             current_item_children_items = i['children']
+            break
 
     temp_item = current_item
     while temp_item and temp_item['parent_item']:
@@ -48,9 +46,11 @@ def draw_menu(context: Context, slug: str) -> Dict[str, Any]:
         for i in menu_list:
             if i['id'] == temp_item['parent_item']:
                 upper_levels.append(i['children'])
+                break
         for i in menu_list:
             if i['id'] == temp_item['parent_item']:
                 temp_item = i
+                break
 
     menu_dict = {
         'items': items,
